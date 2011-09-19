@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export EDITOR="/usr/local/bin/mate_wait"
+
+export CLICOLOR="true"
+
+export PATH="$PATH:$HOME/.gem/ruby/1.8/bin:/usr/local/mysql/bin"

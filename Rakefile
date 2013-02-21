@@ -25,3 +25,17 @@ files.each do |f,mf|
   task :diff => "diff_#{f}"
   task :link => "link_#{f}"
 end
+
+desc "Pull dotfile into repo and replace with link"
+task :capture, :file do |t,args|
+  file = args[:file] or raise "A filename without dot is required"
+
+  dotfile = File.join(home, ("."+file))
+  raise "#{file} isn't a dotfile" unless File.exists? dotfile
+
+  localfile = File.join(pwd, file)
+  raise "#{file} is already in the repo" if File.exists? localfile
+
+  FileUtils.mv dotfile, localfile
+  FileUtils.ln_s localfile, dotfile, :verbose => (ENV["VERBOSE"] || ENV["TEST"]), :noop => ENV["TEST"], :force => ENV["FORCE"]
+end

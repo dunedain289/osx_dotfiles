@@ -1,0 +1,1 @@
+let g:fugitive_git_executable = '/usr/local/bin/git'

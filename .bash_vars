@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export EDITOR="/usr/local/bin/mate_wait"
+export EDITOR="$HOME/bin/mvim_edit"
 
 export CLICOLOR="true"
 

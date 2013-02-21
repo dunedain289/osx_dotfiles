@@ -28,7 +28,7 @@ if [[ -n "$PS1" ]] ; then
 	BLUE='\[\033[01;34m\]'
 	RED='\[\033[01;31m\]'
 	CLEAR='\[\033[0m\]'
-	export PS1="\n\! \t $GREEN\u@\h $CLEAR\$(~/.rvm/bin/rvm-prompt i v g)\$(__git_ps1) $BLUE\w $CLEAR\n\$ "
+	export PS1="\n\! \t $GREEN\u@\h \$(__git_ps1) $BLUE\w $CLEAR\n\$ "
 
 	# If this is an xterm set the title to user@host:dir
 	case "$TERM" in
@@ -70,6 +70,8 @@ if [[ -n "$PS1" ]] ; then
 
 fi # [[ -n $PS1 ]]
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - bash)"

@@ -2,3 +2,5 @@ set background=dark
 color solarized
 
 set novisualbell
+
+set lines=50 columns=128

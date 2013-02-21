@@ -32,3 +32,8 @@
 	email = petersen@dunedain289.com
 [core]
 	quotepath = false
+	editor = mvim -f --nomru -c \"au VimLeave * !open -a Terminal\"
+[push]
+	default = simple
+[credential]
+	helper = osxkeychain

@@ -38,4 +38,7 @@ task :capture, :file do |t,args|
 
   FileUtils.mv dotfile, localfile
   FileUtils.ln_s localfile, dotfile, :verbose => (ENV["VERBOSE"] || ENV["TEST"]), :noop => ENV["TEST"], :force => ENV["FORCE"]
+
+  sh "git add #{file}"
+  sh "git commit -m 'Captured #{file}'"
 end
